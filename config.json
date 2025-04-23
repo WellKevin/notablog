@@ -1,6 +1,6 @@
 {
-  "url": "https://www.notion.so/b6fcf809ca5047b89f423948dce013a0?v=03ddc4d6130a47f8b68e74c9d0061de2",
+  "url": "https://WellKevin.github.io/notablog",
   "theme": "pure-ejs",
-  "previewBrowser": "/usr/bin/chromium",
-  "autoSlug": true
+  "autoSlug": true,
+  "previewBrowser": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
 }
