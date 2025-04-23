@@ -1,19 +1,31 @@
-name: Node.js Reference Test
+name: Deploy Notablog to GitHub Pages
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: "16"
-      - name: Generate the test blog
-        run: |
-          npm i -g notablog
-          notablog generate .
-        env:
-          CI: true
+          node-version: '18'
+
+      - name: Install Notablog
+        run: npm install -g notablog
+
+      - name: Generate static files
+        run: notablog generate .
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
